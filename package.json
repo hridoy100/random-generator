@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "generates 4 types of random objects, inserts them into a file and calculates the total number of objects that were created.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
