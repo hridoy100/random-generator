@@ -116,11 +116,17 @@ function generate2MBData(fileName){
   var out = fs.createWriteStream(fileName, { flags : 'a' });
   while (calc<maxChars) {
     // console.log(calc);
+    // the max value of 2 types of strings is 20
+    // max value of 2 types of ints is 10
+    // each line has 3*2=6 characters consisting of comma and space.
+    // +10 is some cutoff value. So, that next string should not be less than 11
     if((maxChars-calc)<20*2+10*2+6+10 && (maxChars-calc)>11){
       // console.log("inside: generate with len");
       // console.log((maxChars-calc));
       data = generate(maxChars-calc);
     }
+    // min length of string is 5 and 6 characters consisting of comma and spaces rounds up to atleast 11 characters.
+    // if less than 11 characters, that means cannot create any objects.
     else if ((maxChars-calc)<=11){
       data="";
       calc=maxChars;
